@@ -3,91 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexGen AI | Future of Web Intelligence</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <meta name="description" content="NexGen AI helps you build the future of web intelligence with modern tools and AI driven automation.">
+    <title>Flask Static App</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
+    <div class="container">
+        <header class="app-header">
+            <h1 class="app-title">Welcome to Flask Static App</h1>
+            <p class="app-subtitle">Successfully deployed with Flask!</p>
+        </header>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">NEXGEN.AI</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Solutions</a></li>
-            <li><a href="#">Technology</a></li>
-            <li><a href="#">Documentation</a></li>
-        </ul>
-        <a href="#" class="btn-primary">Get Started</a>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="badge">Introducing NexGen v2.0</div>
-        <h1>Empower your <span>Digital Presence</span> with AI Intelligence</h1>
-        <p>The next generation platform for automated web experiences. Scale your operations with our award-winning AI infrastructure and high-performance design systems.</p>
-        <div class="hero-btns">
-            <a href="#" class="btn-primary">Start Building Now</a>
-            <a href="#" class="btn-secondary">View Demo</a>
-        </div>
-    </header>
-
-    <!-- Features Section -->
-    <section class="features">
-        <h2>Built for the <span>Next Frontier</span></h2>
-        <div class="features-grid">
-            
-            <div class="feature-card">
-                <div class="icon-box">
-                    <i data-lucide="zap"></i>
+        <main class="app-main">
+            <section class="content-section">
+                <h2 class="section-title">System Status</h2>
+                <div class="status-card">
+                    <div class="status-indicator status-indicator--active"></div>
+                    <p class="status-text">Flask server is running on port 5000</p>
                 </div>
-                <h3>Lightning Speed</h3>
-                <p>Optimized for performance and extreme low-latency processing across global nodes.</p>
-            </div>
+            </section>
 
-            <div class="feature-card">
-                <div class="icon-box">
-                    <i data-lucide="shield"></i>
-                </div>
-                <h3>Secure by Design</h3>
-                <p>Enterprise-grade security protocols and end-to-end encryption for your most sensitive data.</p>
-            </div>
+            <section class="content-section">
+                <h2 class="section-title">API Endpoints</h2>
+                <ul class="endpoint-list">
+                    <li class="endpoint-list__item">
+                        <code class="endpoint-list__code">GET /</code> - Index page
+                    </li>
+                    <li class="endpoint-list__item">
+                        <code class="endpoint-list__code">GET /health</code> - Health check
+                    </li>
+                </ul>
+            </section>
+        </main>
 
-            <div class="feature-card">
-                <div class="icon-box">
-                    <i data-lucide="cpu"></i>
-                </div>
-                <h3>AI Driven Logic</h3>
-                <p>Self-optimizing algorithms that evolve with your application needs and user behavior.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer style="padding: 5rem 10%; text-align: center; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.9rem;">
-        <div class="logo" style="margin-bottom: 2rem;">NEXGEN.AI</div>
-        <p>&copy; 2026 NexGen Technology Group. All rights reserved.</p>
-        <div style="margin-top: 1rem;">
-            <a href="#" style="color: var(--text-muted); text-decoration: none; margin: 0 1rem;">Twitter</a>
-            <a href="#" style="color: var(--text-muted); text-decoration: none; margin: 0 1rem;">LinkedIn</a>
-            <a href="#" style="color: var(--text-muted); text-decoration: none; margin: 0 1rem;">GitHub</a>
-        </div>
-    </footer>
-
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-
-        // Subtle background mouse follow effect
-        document.body.addEventListener('mousemove', (e) => {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            document.body.style.setProperty('--mouse-x', x);
-            document.body.style.setProperty('--mouse-y', y);
-        });
-    </script>
+        <footer class="app-footer">
+            <p class="app-footer__text">Powered by Flask & Python</p>
+        </footer>
+    </div>
 </body>
 </html>
