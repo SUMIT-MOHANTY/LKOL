@@ -1,44 +1,41 @@
-from flask import Flask, render_template
-import logging
+"""Flask application for optional dynamic serving of static content."""
+
 import os
+from pathlib import Path
 
-app = Flask(__name__)
+try:
+    from flask import Flask, render_template, send_from_directory
+    FLASK_AVAILABLE = True
+except ImportError:
+    FLASK_AVAILABLE = False
 
-# Configure logging for production visibility
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s %(levelname)s: %(message)s'
-)
-logger = logging.getLogger(__name__)
+def create_app():
+    """Create Flask application with proper static handling."""
+    if not FLASK_AVAILABLE:
+        raise ImportError("Flask not available. Use static serving instead.")
 
-@app.route('/')
-def index():
-    """Serve the index page with basic template rendering."""
-    try:
-        logger.info("Serving index page")
+    app = Flask(__name__,
+                template_folder='templates',
+                static_folder='static',
+                static_url_path='/static')
+
+    @app.route('/')
+    def index():
+        """Serve the main index page."""
         return render_template('index.html')
-    except Exception as e:
-        logger.error(f"Error serving index page: {str(e)}")
-        return f"Error rendering template: {str(e)}", 500
 
-@app.route('/health')
-def health_check():
-    """Health check endpoint for deployment monitoring."""
-    return {"status": "healthy", "service": "flask-app"}, 200
+    @app.route('/health')
+    def health():
+        """Health check endpoint."""
+        return {'status': 'healthy'}
 
-@app.errorhandler(404)
-def not_found(error):
-    """Handle 404 errors gracefully."""
-    return {"error": "Resource not found"}, 404
-
-@app.errorhandler(500)
-def internal_error(error):
-    """Handle 500 errors gracefully."""
-    logger.error(f"Internal server error: {str(error)}")
-    return {"error": "Internal server error"}, 500
+    return app
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    host = os.environ.get('HOST', '0.0.0.0')
-    logger.info(f"Starting Flask application on {host}:{port}")
-    app.run(host=host, port=port, debug=False)
+    if FLASK_AVAILABLE:
+        app = create_app()
+        port = int(os.environ.get('PORT', 5000))
+        app.run(host='0.0.0.0', port=port, debug=False)
+    else:
+        print("Flask not available. Install with: pip install flask")
+        exit(1)
