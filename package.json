@@ -1,13 +1,4 @@
 {
-  "name": "static-file-server",
-  "version": "1.0.0",
-  "description": "Static file server with HTML/CSS/JS",
-  "main": "app.py",
-  "scripts": {
-    "start": "python3 app.py",
-    "dev": "python3 app.py"
-  },
-  "keywords": ["static", "server", "html", "css", "js"],
-  "author": "Team",
-  "license": "MIT"
+    "name": "static-site",
+    "version": "1.0.0"
 }
