@@ -1,9 +1,0 @@
-{
-  "frontend": "Static HTML + CSS",
-  "runtime": "static",
-  "backend": null,
-  "validation": {
-    "structure_valid": false,
-    "missing_directories": []
-  }
-}
