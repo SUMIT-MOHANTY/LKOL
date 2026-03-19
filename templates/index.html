@@ -2,42 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask Static App</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <header class="app-header">
-            <h1 class="app-title">Welcome to Flask Static App</h1>
-            <p class="app-subtitle">Successfully deployed with Flask!</p>
-        </header>
-
-        <main class="app-main">
-            <section class="content-section">
-                <h2 class="section-title">System Status</h2>
-                <div class="status-card">
-                    <div class="status-indicator status-indicator--active"></div>
-                    <p class="status-text">Flask server is running on port 5000</p>
-                </div>
-            </section>
-
-            <section class="content-section">
-                <h2 class="section-title">API Endpoints</h2>
-                <ul class="endpoint-list">
-                    <li class="endpoint-list__item">
-                        <code class="endpoint-list__code">GET /</code> - Index page
-                    </li>
-                    <li class="endpoint-list__item">
-                        <code class="endpoint-list__code">GET /health</code> - Health check
-                    </li>
-                </ul>
-            </section>
-        </main>
-
-        <footer class="app-footer">
-            <p class="app-footer__text">Powered by Flask & Python</p>
-        </footer>
-    </div>
+    <h1>{{ heading }}</h1>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
