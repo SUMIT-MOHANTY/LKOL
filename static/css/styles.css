@@ -1,119 +1,40 @@
-/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
+/* Additional styles */
+h1, h2, h3 {
+    margin-bottom: 15px;
     color: #333;
-    background-color: #f5f5f5;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+h1 {
+    font-size: 2.5em;
 }
 
-/* Header styles */
-.app-header {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+h2 {
+    font-size: 2em;
 }
 
-.app-title {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    color: #2563eb;
+p {
+    margin-bottom: 20px;
 }
 
-.app-subtitle {
-    font-size: 1.2rem;
-    color: #64748b;
+.content h2 {
+    color: #35424a;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-/* Main content styles */
-.app-main {
-    margin-bottom: 3rem;
+/* Button styles */
+.button {
+    display: inline-block;
+    background: #35424a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.content-section {
-    margin-bottom: 2rem;
-    padding: 2rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.section-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #1e293b;
-}
-
-/* Status card styles */
-.status-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.status-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #10b981;
-}
-
-.status-indicator--active {
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-.status-text {
-    font-size: 1rem;
-    color: #475569;
-}
-
-/* Endpoint list styles */
-.endpoint-list {
-    list-style: none;
-}
-
-.endpoint-list__item {
-    margin-bottom: 0.5rem;
-}
-
-.endpoint-list__code {
-    background-color: #e2e8f0;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-family: 'Monaco', 'Menlo', monospace;
-    font-size: 0.9rem;
-}
-
-/* Footer styles */
-.app-footer {
-    text-align: center;
-    padding: 1rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.app-footer__text {
-    color: #64748b;
-    font-size: 0.9rem;
+.button:hover {
+    background: #29353d;
 }
