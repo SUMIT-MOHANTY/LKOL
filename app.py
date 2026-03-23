@@ -1,15 +1,20 @@
-import os
 from flask import Flask, render_template
+import os
+from dotenv import load_dotenv
 
-instance_path = os.path.dirname(os.path.abspath(__file__))
-app = Flask(__name__, 
-            template_folder=os.path.join(instance_path, 'templates'),
-            static_folder=os.path.join(instance_path, 'static'))
+# Load environment variables
+load_dotenv()
+
+app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', title='Flask App')
+
+@app.route('/health')
+def health():
+    return {"status": "ok"}
 
 if __name__ == '__main__':
-    # Using 0.0.0.0 helps with access in some VM/Docker environments, but for local, 127.0.0.1 is fine too.
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
