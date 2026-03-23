@@ -1,0 +1,9 @@
+[core]
+    compression = 9
+    bigFileThreshold = 1m
+[fetch]
+    recurseSubmodules = false
+[gc]
+    auto = 0
+[protocol]
+    version = 2
