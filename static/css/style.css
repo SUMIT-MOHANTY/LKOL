@@ -59,6 +59,7 @@ nav {
     letter-spacing: -1px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -151,6 +152,7 @@ nav {
 .hero h1 span {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -238,4 +240,65 @@ nav {
     .hero h1 { font-size: 3.5rem; }
     .hero-btns { flex-direction: column; width: 100%; }
     .btn-primary, .btn-secondary { width: 100%; }
+}
+/* Navigation Auth */
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.user-greeting {
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Flash Messages Wrapper */
+.flash-wrapper {
+    position: fixed;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+    pointer-events: none;
+}
+
+.flash {
+    pointer-events: auto;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    animation: slideDown 0.5s ease;
+}
+
+.flash.error {
+    background: rgba(255, 0, 127, 0.15);
+    color: #ff4d94;
+    border-color: rgba(255, 0, 127, 0.3);
+}
+
+.flash.success {
+    background: rgba(0, 210, 255, 0.15);
+    color: #4ddbff;
+    border-color: rgba(0, 210, 255, 0.3);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

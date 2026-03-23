@@ -15,13 +15,31 @@
     <nav>
         <div class="logo">NEXGEN.AI</div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="#">Solutions</a></li>
             <li><a href="#">Technology</a></li>
             <li><a href="#">Documentation</a></li>
         </ul>
-        <a href="#" class="btn-primary">Get Started</a>
+        <div class="nav-auth">
+            {% if session.get('logged_in') %}
+                <span class="user-greeting">Welcome, {{ session.get('username') }}</span>
+                <a href="{{ url_for('logout') }}" class="btn-secondary">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn-primary">Login</a>
+            {% endif %}
+        </div>
     </nav>
+
+    <!-- Flash Messages Wrapper -->
+    <div class="flash-wrapper">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
 
     <!-- Hero Section -->
     <header class="hero">
