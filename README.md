@@ -1,7 +1,8 @@
-# Flask Web Application
+# Flask Application
 
-A simple Flask web application with templates and static assets.
+This is a simple Flask application setup.
 
-## Running the Application
+## Setup
 
 1. Install dependencies:
+echo 'Fix completed successfully'
